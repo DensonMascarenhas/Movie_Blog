@@ -1,0 +1,39 @@
+
+<% if @movie.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading"><%= pluralize(@friend.errors.count, "error") %> prohibited this todo from being saved:!</h4>
+    <ul>
+        <% @movie.errors.each do |error| %>
+          <li class="mb-0"><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    <hr>
+  <p class="mb-0">Please check and give proper inputs.</p>
+</div>
+    
+  <% end %>
+
+<%= form_with(model: @movie) do |f| %>
+
+
+<div class="mb-3 row">
+    <%= f.label :name, "Name",{class:"form-label"} %>
+    <%= f.text_field :name, {class:"form-control", placeholder:"Enter movie name...", required: "true"} %>
+</div>
+
+<div class="mb-3 row">
+    <%= f.label :Year, "Location",{class:"form-label"} %>
+    <%= f.text_field :year, {class:"form-control", placeholder:"Enter Rear of release...", required: "true"} %>
+</div>
+
+
+<div     class="mb-3 row">
+    <%= f.label :tag_list, "Genre",{class:"form-label"} %>
+    <%= f.text_field :tag_list, {class:"form-control", placeholder:"Enter Genre...", required: "true"} %>
+</div>
+<div class="mb-3 row">
+<center>
+    <%=f.submit(class:"btn btn-primary mb-3")%>
+    </center>
+</div>
+<% end %>

@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
 
     def index
         @movie=Movie.find(params[:id])
+        #niharika pagal hai
     end
 
     def show
